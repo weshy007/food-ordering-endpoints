@@ -10,7 +10,7 @@ import java.util.List;
 public class CreateRestaurantRequest {
 
     private Long id;
-    private Long name;
+    private String name;
     private String description;
     private String cuisineType;
     private Address address;
