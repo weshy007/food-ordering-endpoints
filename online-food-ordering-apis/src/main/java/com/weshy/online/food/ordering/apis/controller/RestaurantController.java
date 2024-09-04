@@ -27,7 +27,7 @@ public class RestaurantController {
             @RequestHeader("Authorization") String jwt
     ) throws Exception {
 
-        User user = userService.findByJwtToken(jwt);
+        User user = userService.findUserByJwtToken(jwt);
         List<Restaurant> restaurant = restaurantService.searchRestaurant(keyword);
 
         return new ResponseEntity<>(restaurant, HttpStatus.OK);
@@ -38,7 +38,7 @@ public class RestaurantController {
             @RequestHeader("Authorization") String jwt
     ) throws Exception {
 
-        User user = userService.findByJwtToken(jwt);
+        User user = userService.findUserByJwtToken(jwt);
         List<Restaurant> restaurant = restaurantService.getAllRestaurants();
 
         return new ResponseEntity<>(restaurant, HttpStatus.OK);
@@ -51,7 +51,7 @@ public class RestaurantController {
 
     ) throws Exception {
 
-        User user = userService.findByJwtToken(jwt);
+        User user = userService.findUserByJwtToken(jwt);
         Restaurant restaurant = restaurantService.findRestaurantById(id);
 
         return new ResponseEntity<>(restaurant, HttpStatus.OK);
@@ -64,7 +64,7 @@ public class RestaurantController {
 
     ) throws Exception {
 
-        User user = userService.findByJwtToken(jwt);
+        User user = userService.findUserByJwtToken(jwt);
         RestaurantDTO restaurant = restaurantService.addToFavorites(id, user);
 
         return new ResponseEntity<>(restaurant, HttpStatus.OK);

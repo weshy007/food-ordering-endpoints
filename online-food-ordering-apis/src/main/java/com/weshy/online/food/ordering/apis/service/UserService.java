@@ -4,7 +4,6 @@ import com.weshy.online.food.ordering.apis.models.User;
 
 public interface UserService {
 
-    public User findByJwtToken(String jwt) throws Exception;
+    public User findUserByJwtToken(String jwt) throws Exception;
     public User findByEmail(String email) throws Exception;
-
 }
