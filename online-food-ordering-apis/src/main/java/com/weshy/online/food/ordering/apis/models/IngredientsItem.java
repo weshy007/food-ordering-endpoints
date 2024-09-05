@@ -18,7 +18,7 @@ public class IngredientsItem {
     private String name;
 
     @ManyToOne
-    private IngredientCategory ingredientCategory;
+    private IngredientCategory category;
 
     @JsonIgnore
     @ManyToOne
