@@ -10,6 +10,6 @@ public interface IngredientService {
     public IngredientCategory findByIngredientCategoryId(Long id) throws  Exception;
     public List<IngredientCategory> findIngredientCategoryByRestaurantId(Long id) throws Exception;
     public IngredientsItem createIngredientItem(Long restaurantId, String ingredientName,Long categoryId) throws Exception;
-    public List<IngredientsItem> findByRestaurantIngredients(Long restaurantId, Long ingredientId) throws Exception;
-    public IngredientsItem updateStock(Long id, Long stock) throws Exception;
+    public List<IngredientsItem> findByRestaurantIngredients(Long restaurantId) throws Exception;
+    public IngredientsItem updateStock(Long id) throws Exception;
 }
