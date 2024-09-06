@@ -58,12 +58,12 @@ public class FoodServiceImpl implements FoodService{
             foods = filterByVegetarian(foods, isVegetarian);
         }
         if(isNonVegetarian) {
-            foods = filterByNonVegetarian(foods, isNonVegetarian);
+            foods = filterByNonVegetarian(foods);
         }
         if(isSeasonal) {
             foods = filterBySeasonal(foods, isSeasonal);
         }
-        if(foodCategory != null && !foodCategory.equals("")) {
+        if(foodCategory != null && !foodCategory.isEmpty()) {
             foods = filterByFoodCategory(foods, foodCategory);
         }
         return foods;
@@ -82,8 +82,8 @@ public class FoodServiceImpl implements FoodService{
         return foods.stream().filter(food -> food.isSeasonal()==isSeasonal).collect(Collectors.toList());
     }
 
-    private List<Food> filterByNonVegetarian(List<Food> foods, boolean isNonVegetarian) {
-        return foods.stream().filter(food -> food.isVegetarian()==false).collect(Collectors.toList());
+    private List<Food> filterByNonVegetarian(List<Food> foods) {
+        return foods.stream().filter(food -> !food.isVegetarian()).collect(Collectors.toList());
     }
 
     private List<Food> filterByVegetarian(List<Food> foods, boolean isVegetarian) {

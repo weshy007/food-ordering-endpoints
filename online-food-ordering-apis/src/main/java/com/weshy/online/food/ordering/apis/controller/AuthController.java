@@ -10,7 +10,6 @@ import com.weshy.online.food.ordering.apis.request.LoginRequest;
 import com.weshy.online.food.ordering.apis.response.AuthResponse;
 import com.weshy.online.food.ordering.apis.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;

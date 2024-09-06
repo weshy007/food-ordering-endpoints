@@ -9,18 +9,18 @@ import java.util.List;
 
 public interface FoodService {
 
-    public Food createFood(CreateFoodRequest req, Category category, Restaurant restaurant);
+    Food createFood(CreateFoodRequest req, Category category, Restaurant restaurant);
     void deleteFood(Long id) throws Exception;
-    public List<Food> getRestaurantFood(Long restaurantId,
-                                        boolean isVegetarian,
-                                        boolean isNonVegetarian,
-                                        boolean isSeasonal,
-                                        String foodCategory
+    List<Food> getRestaurantFood(Long restaurantId,
+                                 boolean isVegetarian,
+                                 boolean isNonVegetarian,
+                                 boolean isSeasonal,
+                                 String foodCategory
     );
 
-    public List<Food> searchFood(String keyword);
-    public Food findFoodById(Long id) throws Exception;
-    public Food updateAvailabilityStatus(Long foodId) throws Exception;
+    List<Food> searchFood(String keyword);
+    Food findFoodById(Long id) throws Exception;
+    Food updateAvailabilityStatus(Long foodId) throws Exception;
 
 
 }

@@ -29,7 +29,7 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
-    public List<Category> findCategoriesByRestaurantId(Long id) throws Exception {
+    public List<Category> findCategoriesByRestaurantId(Long id) {
         return categoryRepository.findByRestaurantId(id);
     }
 

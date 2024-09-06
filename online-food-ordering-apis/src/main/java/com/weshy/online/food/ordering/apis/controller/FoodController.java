@@ -3,7 +3,6 @@ package com.weshy.online.food.ordering.apis.controller;
 import com.weshy.online.food.ordering.apis.models.Food;
 import com.weshy.online.food.ordering.apis.models.User;
 import com.weshy.online.food.ordering.apis.service.FoodService;
-import com.weshy.online.food.ordering.apis.service.RestaurantService;
 import com.weshy.online.food.ordering.apis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,9 +17,6 @@ public class FoodController {
 
     @Autowired
     private FoodService foodService;
-
-    @Autowired
-    private RestaurantService restaurantService;
 
     @Autowired
     private UserService userService;

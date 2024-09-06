@@ -22,23 +22,19 @@ public class JwtProvider {
         Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
         String roles = populateAuthorities(authorities);
 
-        String jwt = Jwts.builder().setIssuedAt(new Date())
+        return Jwts.builder().setIssuedAt(new Date())
                 .setExpiration(new Date(new Date().getTime()+3600)) // expires in 1 hour
                 .claim("email", auth.getName())
                 .claim("authorities", roles)
                 .signWith(key)
                 .compact();
-
-        return jwt;
     }
 
     public String getEmailFromJwtToken(String jwt) {
         jwt = jwt.substring(7);
         Claims claims = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(jwt).getBody();
 
-        String email = String.valueOf(claims.get("email"));
-
-        return email;
+        return String.valueOf(claims.get("email"));
 
     }
 
