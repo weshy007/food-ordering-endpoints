@@ -86,7 +86,7 @@ public class CartServiceImpl implements CartService{
     }
 
     @Override
-    public Long calculateCartTotal(Cart cart) throws Exception {
+    public Long calculateCartTotal(Cart cart) {
         Long total = 0L;
 
         for(CartItem cartItem : cart.getItem()){
@@ -106,13 +106,15 @@ public class CartServiceImpl implements CartService{
     }
 
     @Override
-    public Cart findCartByUserId(Long userId) throws Exception {
-        return cartRepository.findByCustomerId(userId);
+    public Cart findCartByUserId(String jwt) throws Exception {
+        User user = userService.findUserByJwtToken(jwt);
+        return cartRepository.findByCustomerId(user.getId());
     }
 
     @Override
-    public Cart clearCart(Long userId) throws Exception {
-        Cart cart = findCartByUserId(userId);
+    public Cart clearCart(String jwt) throws Exception {
+        User user = userService.findUserByJwtToken(jwt);
+        Cart cart = findCartByUserId(jwt);
         cart.getItem().clear();
 
         return cartRepository.save(cart);
